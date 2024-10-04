@@ -1,0 +1,26 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "My Own description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/omeruis/cv.git"
+  },
+  "keywords": [
+    "cv"
+  ],
+  "author": "Omer NAPPORN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omeruis/cv/issues"
+  },
+  "homepage": "https://github.com/omeruis/cv#readme",
+  "dependencies": {
+    "sass": "^1.79.4"
+  }
+}
