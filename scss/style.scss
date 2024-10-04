@@ -82,16 +82,87 @@ aside {
     }
     .stars-container {
       display: flex;
-      margin: 2rem 0 3rem 0;
+      margin: 1rem 0 3rem 0;
       color: var(--hint);
       i {
         font-size: 2rem;
         margin: 0 1rem;
       }
     }
+    .social-container {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin: 2rem 0;
+      cursor: pointer;
+      i {
+        font-size: 2rem;
+        flex: 0 0 50px;
+        margin-right: 1rem;
+      }
+      p {
+        flex: auto;
+        margin: 0;
+      }
+    }
+    .certification-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      
+        .logo {
+          width: 3rem;
+          height: 3rem;
+        }
+      
+        a {
+          color: inherit;
+          text-decoration: none;
+      
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
   }
 }
 
 main {
-  grid-area: main;
-}
+    grid-area: main;
+    padding: 5rem;
+    h2 {
+      margin-bottom: 4rem;
+    }
+    p {
+      letter-spacing: 0.1rem;
+      line-height: 3rem;
+    }
+    .experience {
+      display: flex;
+      margin: 6rem 0;
+      .timeline {
+        text-align: center;
+        color: var(--hint);
+        padding-right: 2rem;
+        border-right: 1px solid var(--border);
+        p {
+          margin: 0;
+        }
+      }
+      .content {
+        padding: 0 1rem;
+        h3 {
+          margin: 0;
+        }
+        p {
+          margin: 0;
+        }
+        ul {
+          margin: 2rem 0;
+          list-style: circle;
+          padding-left: 4rem;
+        }
+      }
+    }
+  }

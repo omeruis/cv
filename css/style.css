@@ -131,16 +131,84 @@ aside .block .bar-skill .bar-skill-dot {
 }
 aside .block .stars-container {
   display: flex;
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 3rem 0;
   color: var(--hint);
 }
 aside .block .stars-container i {
   font-size: 2rem;
   margin: 0 1rem;
 }
+aside .block .social-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+aside .block .social-container i {
+  font-size: 2rem;
+  flex: 0 0 50px;
+  margin-right: 1rem;
+}
+aside .block .social-container p {
+  flex: auto;
+  margin: 0;
+}
+aside .block .certification-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+aside .block .certification-container .logo {
+  width: 3rem;
+  height: 3rem;
+}
+aside .block .certification-container a {
+  color: inherit;
+  text-decoration: none;
+}
+aside .block .certification-container a:hover {
+  text-decoration: underline;
+}
 
 main {
   grid-area: main;
+  padding: 5rem;
+}
+main h2 {
+  margin-bottom: 4rem;
+}
+main p {
+  letter-spacing: 0.1rem;
+  line-height: 3rem;
+}
+main .experience {
+  display: flex;
+  margin: 6rem 0;
+}
+main .experience .timeline {
+  text-align: center;
+  color: var(--hint);
+  padding-right: 2rem;
+  border-right: 1px solid var(--border);
+}
+main .experience .timeline p {
+  margin: 0;
+}
+main .experience .content {
+  padding: 0 1rem;
+}
+main .experience .content h3 {
+  margin: 0;
+}
+main .experience .content p {
+  margin: 0;
+}
+main .experience .content ul {
+  margin: 2rem 0;
+  list-style: circle;
+  padding-left: 4rem;
 }
 
 /*# sourceMappingURL=style.css.map */
