@@ -52,15 +52,53 @@ img {
   color: var(--hint);
 }
 
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-45deg);
+  }
+  10% {
+    transform: rotate(-35deg);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  90% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* Landscape phones and down */
+/* Landscape phone to portrait tablet */
+/* Portrait tablet to landscape and desktop */
+/* Large desktop */
 .grid-container {
   display: grid;
+  min-height: 100vh;
   grid: "picture header" auto "aside main" 1fr "footer footer" auto/350px auto;
+}
+@media (max-width: 480px) {
+  .grid-container {
+    grid: "header" auto "main" auto "picture" auto "aside" auto "footer" auto/auto;
+  }
 }
 
 header {
   grid-area: header;
   background: linear-gradient(to right, var(--primary), var(--light));
-  padding: 10rem 5rem;
+  padding: 5rem 1rem;
   text-align: center;
   color: white;
   display: flex;
@@ -68,14 +106,28 @@ header {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 2rem;
+  }
+}
 header h1 {
   font-size: 6rem;
   line-height: 8rem;
   font-weight: 300;
   letter-spacing: 3rem;
 }
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 4rem;
+  }
+}
 header p {
   letter-spacing: 0.5rem;
+}
+header span {
+  display: inline-block;
+  animation: bounce 2s;
 }
 
 .picture {
@@ -130,7 +182,7 @@ aside .block .bar-skill .bar-skill-dot {
 }
 aside .block .stars-container {
   display: flex;
-  margin: 1rem 0 3rem 0;
+  margin: 2rem 0 3rem 0;
   color: var(--hint);
 }
 aside .block .stars-container i {
@@ -192,6 +244,11 @@ main {
   grid-area: main;
   padding: 5rem;
 }
+@media (max-width: 480px) {
+  main {
+    padding: 5rem 1.5rem;
+  }
+}
 main h2 {
   margin-bottom: 4rem;
 }
@@ -238,6 +295,11 @@ footer {
   padding: 5rem;
   background: var(--text);
 }
+@media (max-width: 480px) {
+  footer {
+    padding: 5rem 1.5rem;
+  }
+}
 footer h2 {
   margin-bottom: 3rem;
 }
@@ -273,10 +335,17 @@ footer form input {
   border: 0;
   min-width: 400px;
   padding: 1rem 2rem;
+}
+footer form input {
   line-height: 2rem;
 }
 footer form input::placeholder {
   color: var(--text);
+}
+@media (max-width: 480px) {
+  footer form input {
+    min-width: 200px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
