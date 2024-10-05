@@ -51,6 +51,9 @@ img {
 .text-hint {
   color: var(--hint);
 }
+.text-justify {
+  text-align: justify;
+}
 
 .mb-5 {
   margin-bottom: 5rem !important;
@@ -98,7 +101,7 @@ img {
 header {
   grid-area: header;
   background: linear-gradient(to right, var(--primary), var(--light));
-  padding: 5rem 1rem;
+  padding: 5rem 2rem;
   text-align: center;
   color: white;
   display: flex;
@@ -128,6 +131,22 @@ header p {
 header span {
   display: inline-block;
   animation: bounce 2s;
+}
+header .download-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+header .download-btn:hover {
+  background-color: #45a049;
 }
 
 .picture {
@@ -307,7 +326,8 @@ footer form {
   display: flex;
   align-items: center;
 }
-footer form .prefix, footer form .postfix {
+footer form .prefix,
+footer form .postfix {
   background: linear-gradient(to right, var(--dark), var(--light));
   padding: 1rem 2rem;
   color: white;
