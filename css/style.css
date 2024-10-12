@@ -302,6 +302,11 @@ main .experience .content ul {
   list-style: circle;
   padding-left: 4rem;
 }
+main .logo {
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
 
 footer {
   grid-area: footer;
