@@ -1,8 +1,13 @@
 name: CI/CD workflow
 
 env:
-  SERVER_IP: "141.94.79.103"
-  SERVER_USER: root
+  SERVER_IP: '141.94.79.103'
+  SERVER_USER: 'root'
+
+# Paramètres pour gérer la concurrence des jobs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # Groupe de concurrence basé sur le nom du workflow et la référence git
+  cancel-in-progress: true # Annule les jobs en cours si un nouveau job est lancé dans le même groupe
 
 on:
   push:
@@ -20,5 +25,5 @@ jobs:
           ssh-add - <<< "${{ secrets.SSK_KEY_VPS }}"
           mkdir -p ~/.ssh
           ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
-          ssh $SERVER_USER@$SERVER_IP 'mkdir -p /var/www/cv'
-          scp -r index.html img css $SERVER_USER@SERVER_IP:/var/www/cv/
+          ssh $SERVER_USER@$SERVER_IP 'mkdir -p /var/www/html/cv'
+          scp -r index.html img css $SERVER_USER@SERVER_IP:/var/www/html/cv/
