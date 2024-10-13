@@ -8,6 +8,32 @@
         <link rel="stylesheet" href="css/variables.css" />
         <link rel="stylesheet" href="css/style.css" />
         <script src="https://kit.fontawesome.com/cebf3b1694.js" crossorigin="anonymous"></script>
+        <script>
+            function calculateDuration(startDate, elementId, type = 'CDI') {
+                const now = new Date();
+                let years = now.getFullYear() - startDate.getFullYear();
+                let months = now.getMonth() - startDate.getMonth();
+
+                // Ajuster les années et les mois si nécessaire
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Si le mois est commencé, ajouter 1 au mois
+                if (now.getDate() >= startDate.getDate()) {
+                    months++;
+                }
+
+                // Ajuster si les mois dépassent 12
+                if (months >= 12) {
+                    years++;
+                    months -= 12;
+                }
+
+                document.getElementById(elementId).textContent = `${type} . ${years} an${years > 1 ? 's' : ''} et ${months} mois`;
+            }
+        </script>
         <title>CV - Omer NAPPORN</title>
     </head>
     <body>
@@ -135,7 +161,7 @@
                         Je valorise particulièrement le travail d'équipe et la collaboration, trouvant une grande satisfaction dans le partage de connaissances et la résolution collective de défis 
                         techniques complexes. Mon approche du développement front-end combine une compréhension approfondie des frameworks modernes avec une sensibilité esthétique, me permettant de
                          créer des interfaces utilisateur intuitives et attrayantes, notamment en utilisant des outils comme <i class="fab fa-css3-alt"></i> 
-                         Tailwind et <i class="fab fa-bootstrap"></i> Bootstrap.
+                         Tailwind ou <i class="fab fa-bootstrap"></i> Bootstrap.
                     </p>
 
                     <p class="mb-3 text-justify">
@@ -148,101 +174,90 @@
                         d'élargir mes compétences dans un environnement professionnel dynamique.
                     </p>
                     <h2 class="title-small">EXPERIENCES PROFESSIONNELLES</h2>
+                    <!-- ********************************************************************************************************************************************* -->
                     <div class="experience">
-                    <div class="timeline">
-                        <p>
-                            <i class="fas fa-hourglass-half" title="En cours"></i><br />
-                            -<br />
-                        2021
-                        </p>
+                        <div class="timeline">
+                            <p title="septembre 2023 - aujourd'hui">
+                                <i class="fas fa-hourglass-half" title="En cours"></i><br />
+                                -<br />
+                                2023
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Technical Lead</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
+                                <span>
+                                    Mutuelle de Poitiers Assurances <span id="techlead-mpa"></span>
+                                    <script>calculateDuration(new Date(2023, 9, 1), 'techlead-mpa');</script>
+                                </span>
+                            </p>
+                            <p>
+                                En tant que Technical Lead, je suis responsable de la conception et de l'architecture logicielle sous la supervison de l'architecte, en utilisant des technologies comme Java, Spring Boot, Kafka, Vue.js et PWA.
+                                Mon expertise inclut également le développement mobile sur Swift et Android. Je prends des décisions techniques et je résous des problématiques complexes en étant un support pour l'equipe de développeurs.
+                                En parallèle, je joue également un rôle clé de scrum master dans la gestion des processus agiles en supervisant les cérémonies, la planification des sprints et les rétrospectives. 
+                                Mon travail en étroite collaboration avec les parties prenantes garantit que nos solutions techniques sont alignées avec les objectifs métier. 
+                                J'utilise des outils tels que Jira pour la gestion de projet et GitLab pour le suivi de code.
+                                Je m'efforce de favoriser un environnement de travail collaboratif et inclusif, tout en veillant à l'application constante des meilleures pratiques de développement.
+                            </p>
+                            <ul>
+                                <li>
+                                    Méthodes agiles · Revue de code · Applications web progressives · Rédaction de récits utilisateurs . Signature électronique . Paiement en ligne
+                                </li><li>
+                                    Vue3 · Apache Kafka · Spring Boot · Spring batch · PHP · AngularJS · JavaScript · Nginx · Vite · Java · CSS · SQL · HTML5 . Swift . Android
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="content">
-                        <h3>Technical Lead</h3>
-                        <p class="text-hint mb-2">
-                            <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances"">
-                            Mutuelle de Poitiers Assurances - CDI
-                        </p>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                        exercitationem incidunt nisi ea minus maxime iste recusandae
-                        deserunt impedit natus ut, quos molestiae, dolore odit voluptatem
-                        officiis placeat, consequuntur ab quisquam suscipit. Neque, odit
-                        ipsam eveniet debitis sunt, laboriosam temporibus, saepe incidunt
-                        minus excepturi et quos nesciunt reiciendis placeat quo.
-                        </p>
-                        <ul>
-                        <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-                            praesentium.
-                        </li>
-                        </ul>
-                    </div>
-                    </div>
+                    <!-- ********************************************************************************************************************************************* -->
                     <div class="experience">
-                    <div class="timeline">
-                        <p>
-                        2017 <br />
-                        - <br />
-                        2018
-                        </p>
+                        <div class="timeline">
+                            <p title="septembre 2023 - aujourd'hui">
+                                <i class="fas fa-hourglass-half" title="En cours"></i><br />
+                                -<br />
+                                2023
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Technical Lead</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
+                                <span>
+                                    Mutuelle de Poitiers Assurances <span id="duration-mpa"></span>
+                                    <script>calculateDuration(new Date(2023, 9, 1), 'duration-mpa');</script>
+                                </span>
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+                                exercitationem incidunt nisi ea minus maxime iste recusandae
+                                deserunt impedit natus ut, quos molestiae, dolore odit voluptatem
+                                officiis placeat, consequuntur ab quisquam suscipit. Neque, odit
+                                ipsam eveniet debitis sunt, laboriosam temporibus, saepe incidunt
+                                minus excepturi et quos nesciunt reiciendis placeat quo.
+                            </p>
+                            <ul>
+                                <li>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+                                    praesentium.
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
                     </div>
-                    <div class="content">
-                        <h3>Entrez le nom du poste</h3>
-                        <p class="text-hint mb-2">le nom de l'entreprise</p>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                        exercitationem incidunt nisi ea minus maxime iste recusandae
-                        deserunt impedit natus ut, quos molestiae, dolore odit voluptatem
-                        officiis placeat, consequuntur ab quisquam suscipit. Neque, odit
-                        ipsam eveniet debitis sunt, laboriosam temporibus, saepe incidunt
-                        minus excepturi et quos nesciunt reiciendis placeat quo.
-                        </p>
-                        <ul>
-                        <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-                            praesentium.
-                        </li>
-                        </ul>
-                    </div>
-                    </div>
-                    <div class="experience">
-                    <div class="timeline">
-                        <p>
-                        2017 <br />
-                        - <br />
-                        2018
-                        </p>
-                    </div>
-                    <div class="content">
-                        <h3>Entrez le nom du poste</h3>
-                        <p class="text-hint mb-2">le nom de l'entreprise</p>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                        exercitationem incidunt nisi ea minus maxime iste recusandae
-                        deserunt impedit natus ut, quos molestiae, dolore odit voluptatem
-                        officiis placeat, consequuntur ab quisquam suscipit. Neque, odit
-                        ipsam eveniet debitis sunt, laboriosam temporibus, saepe incidunt
-                        minus excepturi et quos nesciunt reiciendis placeat quo.
-                        </p>
-                        <ul>
-                        <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-                            praesentium.
-                        </li>
-                        </ul>
-                    </div>
-                    </div>
+                    <!-- ********************************************************************************************************************************************* -->
                 </main>
             </div>
         </div>
-    <footer>
-        <h2 class="title-small">POUR VOUS RECONTACTER</h2>
-        <form action="#"">
-          <i class="far fa-envelope-open prefix"></i>
-          <input type="text" name="email" placeholder="Votre email" />
-          <button>
-            <i class="fa-solid fa-paper-plane postfix"></i>
-          </button>
-        </form>
-      </footer>
+
+        <footer>
+            <h2 class="title-small">POUR VOUS RECONTACTER</h2>
+            <form action="#"">
+            <i class="far fa-envelope-open prefix"></i>
+            <input type="text" name="email" placeholder="Votre email" />
+            <button>
+                <i class="fa-solid fa-paper-plane postfix"></i>
+            </button>
+            </form>
+        </footer>
+    </body>
 </html>

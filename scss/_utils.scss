@@ -1,7 +1,24 @@
 .mb-5 {
-    margin-bottom: 5rem !important;
-  }
-  
-  .mb-2 {
-    margin-bottom: 2rem !important;
-  }
+  margin-bottom: 5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  /* Centre verticalement le contenu */
+}
+
+.flex-container .logo {
+  margin-right: 10px;
+  /* Espace entre l'image et le texte */
+}
+
+.flex-container span {
+  display: flex;
+  flex-direction: column;
+  /* Permet d'avoir le texte sur deux lignes */
+}

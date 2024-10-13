@@ -63,6 +63,23 @@ img {
   margin-bottom: 2rem !important;
 }
 
+.flex-container {
+  display: flex;
+  align-items: center;
+  /* Centre verticalement le contenu */
+}
+
+.flex-container .logo {
+  margin-right: 10px;
+  /* Espace entre l'image et le texte */
+}
+
+.flex-container span {
+  display: flex;
+  flex-direction: column;
+  /* Permet d'avoir le texte sur deux lignes */
+}
+
 @keyframes bounce {
   0% {
     transform: rotate(-45deg);
@@ -292,7 +309,7 @@ main .experience .content {
   padding: 0 1rem;
 }
 main .experience .content h3 {
-  margin: 0;
+  margin: 0 0 1rem 0;
 }
 main .experience .content p {
   margin: 0;
@@ -303,7 +320,7 @@ main .experience .content ul {
   padding-left: 4rem;
 }
 main .logo {
-  height: 40px;
+  height: 6vh;
   vertical-align: middle;
   margin-right: 10px;
 }
