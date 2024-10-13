@@ -1,424 +1,489 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link  href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap" rel="stylesheet"/>
-        <link rel="stylesheet" href="css/variables.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <script src="https://kit.fontawesome.com/cebf3b1694.js" crossorigin="anonymous"></script>
-        <script>
-            function calculateDuration(startDate, elementId, endDate = null, type = 'CDI') {
-                const now = endDate ? new Date(endDate) : new Date();
-                let years = now.getFullYear() - startDate.getFullYear();
-                let months = now.getMonth() - startDate.getMonth();
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/variables.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://kit.fontawesome.com/cebf3b1694.js" crossorigin="anonymous"></script>
+    <script>
+        function calculateDuration(startDate, elementId, endDate = null, type = 'CDI') {
+            const now = endDate ? new Date(endDate) : new Date();
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
 
-                // Ajuster les années et les mois si nécessaire
-                if (months < 0) {
-                    years--;
-                    months += 12;
-                }
-
-                // Si le mois est commencé, ajouter 1 au mois
-                if (now.getDate() >= startDate.getDate()) {
-                    months++;
-                }
-
-                // Ajuster si les mois dépassent 12
-                if (months >= 12) {
-                    years++;
-                    months -= 12;
-                }
-
-                const duration = years > 0 
-                    ? `${years} an${years > 1 ? 's' : ''}${months > 0 ? ' et ' + months + ' mois' : ''}` 
-                    : `${months} mois`;
-                const status = endDate ? '' : '(En cours)';
-                document.getElementById(elementId).textContent = `${type} . ${duration} ${status}`;
+            // Ajuster les années et les mois si nécessaire
+            if (months < 0) {
+                years--;
+                months += 12;
             }
 
-            function calculateExperience(startDate, elementId) {
-                const now = new Date();
-                let years = now.getFullYear() - startDate.getFullYear();
-                let months = now.getMonth() - startDate.getMonth();
-
-                // Ajuster les années et les mois si nécessaire
-                if (months < 0 || (months === 0 && now.getDate() < startDate.getDate())) {
-                    years--;
-                }
-
-                document.getElementById(elementId).textContent = `(+ ${years} ans)`;
+            // Si le mois est commencé, ajouter 1 au mois
+            if (now.getDate() >= startDate.getDate()) {
+                months++;
             }
-        </script>
-        <title>CV - Omer NAPPORN</title>
-    </head>
-    <body>
-        <div id="app">
-            <div id="cv-content" class="grid-container">
-                <header>
-                    <h1>Omer NAPPORN</h1>
-                    <p>Développeur Full-Stack <span id="experiences"></span></p>
-                    <script>const experienceYears = calculateExperience(new Date(2018, 8, 1),  'experiences');</script>
-                </header>
-                <section class="picture">
-                    <img src="/img/omer.jpeg" alt="photo" />
-                </section>
-                <aside>
-                    <div class="block">
-                        <h2 class="title-small">CONTACT</h2>
-                        <h3>Téléphone</h3>
-                        <p>07 51 92 71 81</p>
-                        <h3>Email</h3>
-                        <p>nappornomer@gmail.com</p>
-                        <h3>Adresse</h3>
-                        <p>** *** ****** ******</p>
-                    </div>
-                    <div class="block">
-                        <h2 class="title-small">COMPÉTENCES</h2>
-                        
-                        <h3>Développement Web</h3>
-                        <p>HTML, CSS, JavaScript, React, Vue, Next.js</p>
-                        
-                        <h3>Développement Backend</h3>
-                        <p>Node.js, Java/Spring Boot, Solidity, Rust (notions)</p>
-                        
-                        <h3>Développement Mobile</h3>
-                        <p>Android (Java/Kotlin), iOS (Swift)</p>
-                        
-                        <h3>DevOps</h3>
-                        <p>Docker, Kubernetes, Ansible, Jenkins, GitLab, GitHub</p>
-                        
-                        <h3>Bases de données</h3>
-                        <p>Oracle, MySQL, MongoDB, PostgreSQL</p>
-                    </div>
-                    <div class="block">
-                        <h2 class="title-small">Certifications</h2>
 
-                        <div class="certification-container">
-                            <img src="https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg" alt="Logo Vue.js" width="30" height="30">
-                            <a href="https://dyma.fr/certification/6342e1ae8a20ce4eb2e06331/6213ef21bcbb7ac87308139c" target="_blank" rel="noopener noreferrer">
-                                Vue 3 Developer
-                            </a>
-                        </div>
-                        
-                        <div class="certification-container">
-                            <img style="display: block; -webkit-user-select: none; user-select: none;" alt="Logo Udacity"
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAANlBMVEVHcEwgFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFP8gFf8gFf8gFf8gFf8gFf8fFP+5rT4KAAAAEnRSTlMAbuQ8pLELSPf/fCbWWcWYhBUywuzcAAAAv0lEQVR4Ad3RQRKDIBBE0QYI8mXEeP/Lpiw0I5Ub5G9cPGkW6C7EpKn8KhotFVjkrQA6awYWcdwq9IEZCLIvJoOYBGMgS44rEKQCimBNT9zp0kDYpBlZHcsPvv8MD6rjizBhwhwDfcI32bFAeyIsqhwaZeL1Xc9biJKRdMUYNjYpQztH9hsb1E0CpTgeK4HujghEqHDtGVnfwsnA7mOrvFP74X/jZ1uFOBZd2VPRsXUgaK4ZMF02lXarxB6Knn0APZEME29QFiwAAAAASUVORK5CYII=">
-                            <a href="https://www.udacity.com/certificate/NUJKVPKEc" target="_blank" rel="noopener noreferrer">
-                                Blockchain Developer
-                            </a>
-                        </div>
-                        <div class="certification-container">
-                            <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="Logo Spring Boot" width="30" height="30">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                Spring Professional Certificate (<b>in progress</b>)
-                            </a>
-                        </div>
-                        
-                    </div>
-                    <div class="block">
-                        <h2 class="title-small">EDUCATION</h2>
-                        <h3>Université de Poitiers</h3>
-                        <p>Master gestion & analyse de données<br /><i>2017-2019</i></p>
-                        <p>Licence de recherche<br /><i>2016-2017</i></p>
-                        <h3>Institut Africain d'Informatique</h3>
-                        <p>Licence professionnelle<br /><i>2011-2014</i></p>
-                    </div>
-                    <div class="block">
-                        <h2 class="title-small">LANGUES</h2>
-                        <h3>FRANÇAIS</h3>
-                        <div class="stars-container">
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star text-primary"></i>
-                        </div>
-                        <h3>ANGLAIS</h3>
-                        <div class="stars-container">
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star text-primary"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="block">
-                        <h2 class="title-small">SOCIAL</h2>
-                        <a href="https://github.com/omeruis" target="_blank" rel="noopener noreferrer" class="social-container">
-                        <i class="fab fa-github"></i>
-                        <p>omeruis</p>
-                        </a>
-                        <a href="https://www.linkedin.com/in/omer-napporn" target="_blank" rel="noopener noreferrer" class="social-container">
-                        <i class="fab fa-linkedin"></i>
-                        <p>omer-napporn</p>
-                        </a>
-                    </div>
-                </aside>
-                <main>
-                    <h2 class="title-small">PROFIL PROFESSIONNEL</h2>
-                    
-                    <p class="mb-3 text-justify">
-                        En tant que développeur passionné, je m'épanouis dans l'exploration et la maîtrise de divers langages de programmation et technologies. 
-                        Mon expertise s'étend du développement web avec <i class="fab fa-react"></i> React et <i class="fab fa-vuejs"></i> Vue.js,
-                         au backend avec <i class="fab fa-java"></i> Java et <i class="fab fa-node-js"></i> Node.js, en passant par les technologies émergentes comme 
-                         <img src="https://www.rust-lang.org/logos/rust-logo-32x32.png" alt="Rust" style="width: 16px; height: 16px; vertical-align: middle;"> Rust et 
-                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity" style="width: 16px; height: 16px; vertical-align: middle;"> Solidity.
-                    </p>
+            // Ajuster si les mois dépassent 12
+            if (months >= 12) {
+                years++;
+                months -= 12;
+            }
 
-                    <p class="mb-3 text-justify">
-                        Bien que ma spécialisation principale soit le développement full-stack, je m'oriente activement vers le DevOps. Je me forme actuellement sur des outils tels que 
-                        <i class="fab fa-docker"></i> Docker, <i class="fas fa-dharmachakra"></i> Kubernetes et <i class="fab fa-ansible"></i> Ansible, ainsi que sur <i class="fas fa-server"></i> 
-                        Nginx et les plateformes cloud comme <i class="fab fa-aws"></i> AWS et <i class="fab fa-google"></i> GCP. De plus, j'approfondis mes connaissances en intégration et 
-                        déploiement continus (CI/CD) avec des outils comme <i class="fab fa-jenkins"></i> Jenkins, <i class="fab fa-gitlab"></i> GitLab CI et <i class="fab fa-github"></i> 
-                        GitHub Actions. Cette démarche témoigne de ma volonté constante d'élargir mes compétences et de m'adapter aux évolutions du secteur.
-                    </p>
+            const duration = years > 0
+                ? `${years} an${years > 1 ? 's' : ''}${months > 0 ? ' et ' + months + ' mois' : ''}`
+                : `${months} mois`;
+            const status = endDate ? '' : '(En cours)';
+            document.getElementById(elementId).textContent = `${type} . ${duration} ${status}`;
+        }
 
-                    <p class="mb-3 text-justify">
-                        Je valorise particulièrement le travail d'équipe et la collaboration, trouvant une grande satisfaction dans le partage de connaissances et la résolution collective de défis 
-                        techniques complexes. Mon approche du développement front-end combine une compréhension approfondie des frameworks modernes avec une sensibilité esthétique, me permettant de
-                         créer des interfaces utilisateur intuitives et attrayantes, notamment en utilisant des outils comme <i class="fab fa-css3-alt"></i> 
-                         Tailwind ou <i class="fab fa-bootstrap"></i> Bootstrap.
-                    </p>
+        function calculateExperience(startDate, elementId) {
+            const now = new Date();
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
 
-                    <p class="mb-3 text-justify">
-                        J'ai également approfondi mes connaissances dans le domaine de la <i class="fab fa-bitcoin"></i> blockchain, obtenant une certification de développeur blockchain, 
-                        ce qui illustre ma capacité à maîtriser des technologies émergentes.
-                    </p>
+            // Ajuster les années et les mois si nécessaire
+            if (months < 0 || (months === 0 && now.getDate() < startDate.getDate())) {
+                years--;
+            }
 
-                    <p class="mb-5 text-justify">
-                        Toujours en quête de nouveaux défis, je reste ouvert aux opportunités innovantes dans le secteur du développement logiciel, prêt à apporter ma contribution et à continuer 
-                        d'élargir mes compétences dans un environnement professionnel dynamique.
+            document.getElementById(elementId).textContent = `(+ ${years} ans)`;
+        }
+    </script>
+    <title>CV - Omer XXXXXXXX</title>
+</head>
+<body>
+<div id="app">
+    <div id="cv-content" class="grid-container">
+        <header>
+            <h1>Omer NAPPORN</h1>
+            <p>Développeur Full-Stack <span id="experiences"></span></p>
+            <script>
+                calculateExperience(new Date(2018, 8, 1), 'experiences');
+            </script>
+        </header>
+        <section class="picture">
+            <img src="/img/omer.jpeg" alt="photo"/>
+        </section>
+        <aside>
+            <div class="block">
+                <h2 class="title-small">CONTACT</h2>
+                <h3>Téléphone</h3>
+                <p>07 51 92 71 81</p>
+                <h3>Email</h3>
+                <p>nappornomer@gmail.com</p>
+                <h3>Adresse</h3>
+                <p>** *** ****** ******</p>
+            </div>
+            <div class="block">
+                <h2 class="title-small">COMPÉTENCES</h2>
+
+                <h3>Développement Web</h3>
+                <p>HTML, CSS, JavaScript, React, Vue, Next.js</p>
+
+                <h3>Développement Backend</h3>
+                <p>Node.js, Java/Spring Boot, Solidity, Rust (notions)</p>
+
+                <h3>Développement Mobile</h3>
+                <p>Android (Java/Kotlin), iOS (Swift)</p>
+
+                <h3>DevOps</h3>
+                <p>Docker, Kubernetes, Ansible, Jenkins, GitLab, GitHub</p>
+
+                <h3>Bases de données</h3>
+                <p>Oracle, MySQL, MongoDB, PostgreSQL</p>
+            </div>
+            <div class="block">
+                <h2 class="title-small">Certifications</h2>
+
+                <div class="certification-container">
+                    <img src="https://www.vectorlogo.zone/logos/vuejs/vuejs-icon.svg" alt="Logo Vue.js" width="30"
+                         height="30">
+                    <a href="https://dyma.fr/certification/6342e1ae8a20ce4eb2e06331/6213ef21bcbb7ac87308139c"
+                       target="_blank" rel="noopener noreferrer">
+                        Vue 3 Developer
+                    </a>
+                </div>
+
+                <div class="certification-container">
+                    <img style="display: block; -webkit-user-select: none; user-select: none;" alt="Logo Udacity"
+                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAANlBMVEVHcEwgFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFf8gFP8gFf8gFf8gFf8gFf8gFf8fFP+5rT4KAAAAEnRSTlMAbuQ8pLELSPf/fCbWWcWYhBUywuzcAAAAv0lEQVR4Ad3RQRKDIBBE0QYI8mXEeP/Lpiw0I5Ub5G9cPGkW6C7EpKn8KhotFVjkrQA6awYWcdwq9IEZCLIvJoOYBGMgS44rEKQCimBNT9zp0kDYpBlZHcsPvv8MD6rjizBhwhwDfcI32bFAeyIsqhwaZeL1Xc9biJKRdMUYNjYpQztH9hsb1E0CpTgeK4HujghEqHDtGVnfwsnA7mOrvFP74X/jZ1uFOBZd2VPRsXUgaK4ZMF02lXarxB6Knn0APZEME29QFiwAAAAASUVORK5CYII=">
+                    <a href="https://www.udacity.com/certificate/NUJKVPKEc" target="_blank" rel="noopener noreferrer">
+                        Blockchain Developer
+                    </a>
+                </div>
+                <div class="certification-container">
+                    <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="Logo Spring Boot"
+                         width="30" height="30">
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        Spring Professional Certificate (<b>in progress</b>)
+                    </a>
+                </div>
+
+            </div>
+            <div class="block">
+                <h2 class="title-small">EDUCATION</h2>
+                <h3>Université de Poitiers</h3>
+                <p>Master gestion & analyse de données<br/><i>2017-2019</i></p>
+                <p>Licence de recherche<br/><i>2016-2017</i></p>
+                <h3>Institut Africain d'Informatique</h3>
+                <p>Licence professionnelle<br/><i>2011-2014</i></p>
+            </div>
+            <div class="block">
+                <h2 class="title-small">LANGUES</h2>
+                <h3>FRANÇAIS</h3>
+                <div class="stars-container">
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star text-primary"></i>
+                </div>
+                <h3>ANGLAIS</h3>
+                <div class="stars-container">
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star text-primary"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="block">
+                <h2 class="title-small">SOCIAL</h2>
+                <a href="https://github.com/omeruis" target="_blank" rel="noopener noreferrer" class="social-container">
+                    <i class="fab fa-github"></i>
+                    <p>omeruis</p>
+                </a>
+                <a href="https://www.linkedin.com/in/omer-napporn" target="_blank" rel="noopener noreferrer"
+                   class="social-container">
+                    <i class="fab fa-linkedin"></i>
+                    <p>omer-napporn</p>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h2 class="title-small">PROFIL PROFESSIONNEL</h2>
+
+            <p class="mb-3 text-justify">
+                En tant que développeur passionné, je m'épanouis dans l'exploration et la maîtrise de divers langages de
+                programmation et technologies.
+                Mon expertise s'étend du développement web avec <i class="fab fa-react"></i> React et <i
+                    class="fab fa-vuejs"></i> Vue.js,
+                au backend avec <i class="fab fa-java"></i> Java et <i class="fab fa-node-js"></i> Node.js, en passant
+                par les technologies émergentes comme
+                <img src="https://www.rust-lang.org/logos/rust-logo-32x32.png" alt="Rust"
+                     style="width: 16px; height: 16px; vertical-align: middle;"> Rust et
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity"
+                     style="width: 16px; height: 16px; vertical-align: middle;"> Solidity.
+            </p>
+
+            <p class="mb-3 text-justify">
+                Bien que ma spécialisation principale soit le développement full-stack, je m'oriente activement vers le
+                DevOps. Je me forme actuellement sur des outils tels que
+                <i class="fab fa-docker"></i> Docker, <i class="fas fa-dharmachakra"></i> Kubernetes et <i
+                    class="fab fa-ansible"></i> Ansible, ainsi que sur <i class="fas fa-server"></i>
+                Nginx et les plateformes cloud comme <i class="fab fa-aws"></i> AWS et <i class="fab fa-google"></i>
+                GCP. De plus, j'approfondis mes connaissances en intégration et
+                déploiement continus (CI/CD) avec des outils comme <i class="fab fa-jenkins"></i> Jenkins, <i
+                    class="fab fa-gitlab"></i> GitLab CI et <i class="fab fa-github"></i>
+                GitHub Actions. Cette démarche témoigne de ma volonté constante d'élargir mes compétences et de
+                m'adapter aux évolutions du secteur.
+            </p>
+
+            <p class="mb-3 text-justify">
+                Je valorise particulièrement le travail d'équipe et la collaboration, trouvant une grande satisfaction
+                dans le partage de connaissances et la résolution collective de défis
+                techniques complexes. Mon approche du développement front-end combine une compréhension approfondie des
+                frameworks modernes avec une sensibilité esthétique, me permettant de
+                créer des interfaces utilisateur intuitives et attrayantes, notamment en utilisant des outils comme <i
+                    class="fab fa-css3-alt"></i>
+                Tailwind ou <i class="fab fa-bootstrap"></i> Bootstrap.
+            </p>
+
+            <p class="mb-3 text-justify">
+                J'ai également approfondi mes connaissances dans le domaine de la <i class="fab fa-bitcoin"></i>
+                blockchain, obtenant une certification de développeur blockchain,
+                ce qui illustre ma capacité à maîtriser des technologies émergentes.
+            </p>
+
+            <p class="mb-5 text-justify">
+                Toujours en quête de nouveaux défis, je reste ouvert aux opportunités innovantes dans le secteur du
+                développement logiciel, prêt à apporter ma contribution et à continuer
+                d'élargir mes compétences dans un environnement professionnel dynamique.
+            </p>
+            <h2 class="title-small">EXPERIENCES PROFESSIONNELLES</h2>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="septembre 2023 - aujourd'hui">
+                        <i class="fas fa-hourglass-half" title="En cours"></i><br/>
+                        -<br/>
+                        2023
                     </p>
-                    <h2 class="title-small">EXPERIENCES PROFESSIONNELLES</h2>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="septembre 2023 - aujourd'hui">
-                                <i class="fas fa-hourglass-half" title="En cours"></i><br />
-                                -<br />
-                                2023
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Technical Lead</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
-                                <span>
+                </div>
+                <div class="content">
+                    <h3>Technical Lead</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg"
+                             alt="Logo Mutuelle de Poitiers Assurances">
+                        <span>
                                     Mutuelle de Poitiers Assurances <span id="techlead-mpa"></span>
                                     <script>calculateDuration(new Date(2023, 9, 1), 'techlead-mpa');</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                En tant que Technical Lead, je suis responsable de la conception et de l'architecture logicielle sous la supervison de l'architecte, en utilisant des technologies comme Java, Spring Boot, Kafka, Vue.js et PWA.
-                                Mon expertise inclut également le développement mobile sur Swift et Android. Je prends des décisions techniques et je résous des problématiques complexes en étant un support pour l'equipe de développeurs.
-                                En parallèle, je joue également un rôle clé de scrum master dans la gestion des processus agiles en supervisant les cérémonies, la planification des sprints et les rétrospectives. 
-                                Mon travail en étroite collaboration avec les parties prenantes garantit que nos solutions techniques sont alignées avec les objectifs métier. 
-                                J'utilise des outils tels que Jira pour la gestion de projet et GitLab pour le suivi de code.
-                                Je m'efforce de favoriser un environnement de travail collaboratif et inclusif, tout en veillant à l'application constante des meilleures pratiques de développement.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Méthodes agiles · Revue de code · Espace Personnel · Rédaction de récits utilisateurs . Signature électronique . Paiement en ligne . PWA
-                                </li>
-                                <li>
-                                    Vue3 · Apache Kafka · Java . Spring Boot · Spring batch · PHP/Symfony · AngularJS · JavaScript · Nginx · Vite · SQL · HTML5 . CSS . Swift . Android
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="Avril 2021 - Octobre 2023">
-                                2023
-                                -<br />
-                                2021
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Développeur Full Stack</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
-                                <span>
+                    </p>
+                    <p class="text-justify">
+                        En tant que Technical Lead, je suis responsable de la conception et de l'architecture logicielle
+                        sous la supervison de l'architecte, en utilisant des technologies comme Java, Spring Boot,
+                        Kafka, Vue.js et PWA.
+                        Mon expertise inclut également le développement mobile sur Swift et Android. Je prends des
+                        décisions techniques et je résous des problématiques complexes en étant un support pour l'equipe
+                        de développeurs.
+                        En parallèle, je joue également un rôle clé de scrum master dans la gestion des processus agiles
+                        en supervisant les cérémonies, la planification des sprints et les rétrospectives.
+                        Mon travail en étroite collaboration avec les parties prenantes garantit que nos solutions
+                        techniques sont alignées avec les objectifs métier.
+                        J'utilise des outils tels que Jira pour la gestion de projet et GitLab pour le suivi de code.
+                        Je m'efforce de favoriser un environnement de travail collaboratif et inclusif, tout en veillant
+                        à l'application constante des meilleures pratiques de développement.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Méthodes agiles · Revue de code · Espace Personnel · Rédaction de récits utilisateurs .
+                            Signature électronique . Paiement en ligne . PWA
+                        </li>
+                        <li>
+                            Vue3 · Apache Kafka · Java . Spring Boot · Spring batch · PHP/Symfony · AngularJS ·
+                            JavaScript · Nginx · Vite · SQL · HTML5 . CSS . Swift . Android
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="Avril 2021 - Octobre 2023">
+                        2023
+                        -<br/>
+                        2021
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Développeur Full Stack</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg"
+                             alt="Logo Mutuelle de Poitiers Assurances">
+                        <span>
                                     Mutuelle de Poitiers Assurances <span id="fullstack-mpa"></span>
                                     <script>calculateDuration(new Date(2021, 4, 1), 'fullstack-mpa', new Date(2023, 8, 31));</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                Dans le cadre de mes missions, j’ai participé au développement et à la maintenance de projets digitaux. Je suis intervenu aussi dans les domaines de la santé et des sinistres pour la realision d'un projet
-                                de suivi de sinistres en ligne. 
-                                Pour la mise en place d'une demande de devis santé en ligne, j'ai utilisé Java, Spring Boot, Vue.js et Mustache pour le front-end, tandis que le back-end a été construit avec Java, Struts et XML. 
-                                Des webservices SOAP et REST ont été intégrés pour faciliter la communication entre les systèmes.
-                                J'ai également développé un SDK pour un service REST dédié à la signature électronique, en utilisant Swagger et Java avec Spring Boot (versions 1 et 2).
-                                En outre, j'ai mis en place une solution de signature électronique, où le front-end a été réalisé avec PHP/Symfony et Twig dans un environnement Docker. 
-                                Le back-end, quant à lui, a été conçu avec Java, Struts et Spring Boot 2, intégrant également des webservices SOAP et REST, le tout reposant sur une architecture micro-services.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Signature électronique . Paiement en ligne . Espace personnel
-                                </li>
-                                <li>
-                                    Docker . PHP . Symfony . Java . Spring Boot . Vue.js . AngularJS . Mustache . Struts . XML . SOAP . REST
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="Septembre 2019 - Mars 2021">
-                                2021
-                                -<br />
-                                2019
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Consultant Java</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="img/cgi_logo.jpeg" alt="Logo CGI">
-                                <span>
+                    </p>
+                    <p class="text-justify">
+                        Dans le cadre de mes missions, j’ai participé au développement et à la maintenance de projets
+                        digitaux. Je suis intervenu aussi dans les domaines de la santé et des sinistres pour la
+                        realision d'un projet
+                        de suivi de sinistres en ligne.
+                        Pour la mise en place d'une demande de devis santé en ligne, j'ai utilisé Java, Spring Boot,
+                        Vue.js et Mustache pour le front-end, tandis que le back-end a été construit avec Java, Struts
+                        et XML.
+                        Des webservices SOAP et REST ont été intégrés pour faciliter la communication entre les
+                        systèmes.
+                        J'ai également développé un SDK pour un service REST dédié à la signature électronique, en
+                        utilisant Swagger et Java avec Spring Boot (versions 1 et 2).
+                        En outre, j'ai mis en place une solution de signature électronique, où le front-end a été
+                        réalisé avec PHP/Symfony et Twig dans un environnement Docker.
+                        Le back-end, quant à lui, a été conçu avec Java, Struts et Spring Boot 2, intégrant également
+                        des webservices SOAP et REST, le tout reposant sur une architecture micro-services.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Signature électronique . Paiement en ligne . Espace personnel
+                        </li>
+                        <li>
+                            Docker . PHP . Symfony . Java . Spring Boot . Vue.js . AngularJS . Mustache . Struts . XML .
+                            SOAP . REST
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="Septembre 2019 - Mars 2021">
+                        2021
+                        -<br/>
+                        2019
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Consultant Java</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="img/cgi_logo.jpeg" alt="Logo CGI">
+                        <span>
                                     UMANIS <span id="consultant-java"></span>
                                     <script>calculateDuration(new Date(2019, 9, 1), 'consultant-java', new Date(2021, 3, 30));</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                Mise en place d'un projet de suivi des sinistres en ligne, basé sur Vue.js (version 2), permettant aux utilisateurs de suivre l'état de leurs dossiers depuis leur espace personnel. 
-                                Ce projet intégrait également un système de téléchargement de pièces jointes, avec des restrictions spécifiques sur les droits d'accès pour garantir la confidentialité et la sécurité des documents.
-                                En parallèle, j'ai assuré la maintenance des applications de signature électronique, en corrigeant notamment les anomalies détectées en production afin de garantir un fonctionnement optimal et sécurisé des services.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Signature électronique . Espace personnel
-                                </li>
-                                <li>
-                                    PHP . Symfony . Java . Spring Boot . Vue.js . Struts . XML . SOAP . REST
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="Septembre 2018 - Aout 2019">
-                                2019
-                                -<br />
-                                2018
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Analyste Développeur Java / Angular</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
-                                <span>
+                    </p>
+                    <p class="text-justify">
+                        Mise en place d'un projet de suivi des sinistres en ligne, basé sur Vue.js (version 2),
+                        permettant aux utilisateurs de suivre l'état de leurs dossiers depuis leur espace personnel.
+                        Ce projet intégrait également un système de téléchargement de pièces jointes, avec des
+                        restrictions spécifiques sur les droits d'accès pour garantir la confidentialité et la sécurité
+                        des documents.
+                        En parallèle, j'ai assuré la maintenance des applications de signature électronique, en
+                        corrigeant notamment les anomalies détectées en production afin de garantir un fonctionnement
+                        optimal et sécurisé des services.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Signature électronique . Espace personnel
+                        </li>
+                        <li>
+                            PHP . Symfony . Java . Spring Boot . Vue.js . Struts . XML . SOAP . REST
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="Septembre 2018 - Aout 2019">
+                        2019
+                        -<br/>
+                        2018
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Analyste Développeur Java / Angular</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg"
+                             alt="Logo Mutuelle de Poitiers Assurances">
+                        <span>
                                     Mutuelle de Poitiers Assurances <span id="analyste-java"></span>
                                     <script>calculateDuration(new Date(2018, 9, 1), 'analyste-java', new Date(2019, 8, 30), 'Alternance');</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                J'ai participé au développement de services REST en utilisant Spring, ainsi qu'à la création d'applications front-end avec AngularJS. En parallèle, 
-                                j'ai rédigé des cahiers de recette afin de formaliser les tests et validations des fonctionnalités.
-                                J'ai également rédigé des tests unitaires pour le front-end, en utilisant Jest, et pour le back-end avec Mockito, afin de garantir la robustesse du code.
-                                Par ailleurs, j'ai mené la refonte d'une application de gestion des partenaires, initialement développée en Visual Basic, en la modernisant avec AngularJS et Java, pour améliorer ses performances et son ergonomie.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Tests unitaires . Rédactions de cahiers de recette
-                                </li>
-                                <li>
-                                        Java . Spring Boot . AngularJs . Struts . XML . REST . Mockito . JUnit
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="Avril 2017 - Aout 2017">
-                                2017
-                                -<br />
-                                2017
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Testeur front-end</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="img/groupama_gan_vie_logo.jpeg" alt="Logo Groupama">
-                                <span>
+                    </p>
+                    <p class="text-justify">
+                        J'ai participé au développement de services REST en utilisant Spring, ainsi qu'à la création
+                        d'applications front-end avec AngularJS. En parallèle,
+                        j'ai rédigé des cahiers de recette afin de formaliser les tests et validations des
+                        fonctionnalités.
+                        J'ai également rédigé des tests unitaires pour le front-end, en utilisant Jest, et pour le
+                        back-end avec Mockito, afin de garantir la robustesse du code.
+                        Par ailleurs, j'ai mené la refonte d'une application de gestion des partenaires, initialement
+                        développée en Visual Basic, en la modernisant avec AngularJS et Java, pour améliorer ses
+                        performances et son ergonomie.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Tests unitaires . Rédactions de cahiers de recette
+                        </li>
+                        <li>
+                            Java . Spring Boot . AngularJs . Struts . XML . REST . Mockito . JUnit
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="Avril 2017 - Aout 2017">
+                        2017
+                        -<br/>
+                        2017
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Testeur front-end</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="img/groupama_gan_vie_logo.jpeg" alt="Logo Groupama">
+                        <span>
                                     GROUPAMA GAN VIE <span id="testeur"></span>
                                     <script>calculateDuration(new Date(2017, 4, 1), 'testeur', new Date(2017, 8, 1), 'Stage');</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                Lors de mon stage sur le projet iVie, j'ai contribué au développement de tests automatiques visant à vérifier les interfaces utilisateurs (IHM). 
-                                Mon travail a consisté à mettre en place des tests end-to-end automatiques, permettant de simuler le parcours utilisateur complet et de vérifier le bon fonctionnement des fonctionnalités. 
-                                En parallèle, j'ai également développé des tests unitaires pour valider individuellement les composants du projet, assurant ainsi la qualité et la stabilité du code.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Tests unitaires
-                                </li>
-                                <li>
-                                    Html . CSS . AngularJs .  ionic . Karma . Protractor . Selenium . Jira . Jenkins . Gulp . Yarn
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- ********************************************************************************************************************************************* -->
-                    <div class="experience">
-                        <div class="timeline">
-                            <p title="juin 2015 - Septembre 2016">
-                                2016
-                                -<br />
-                                2015
-                            </p>
-                        </div>
-                        <div class="content">
-                            <h3>Administrateur et coordinateur ENT</h3>
-                            <p class="text-hint mb-2 flex-container">
-                                <img class="logo" src="img/lion.png" alt="Logo MPEN Togo">
-                                <span>
-                                    Ministère des Postes et de l'Économie Numérique du Togo <span id="adminstrateur"></span>
+                    </p>
+                    <p class="text-justify">
+                        Lors de mon stage sur le projet iVie, j'ai contribué au développement de tests automatiques
+                        visant à vérifier les interfaces utilisateurs (IHM).
+                        Mon travail a consisté à mettre en place des tests end-to-end automatiques, permettant de
+                        simuler le parcours utilisateur complet et de vérifier le bon fonctionnement des
+                        fonctionnalités.
+                        En parallèle, j'ai également développé des tests unitaires pour valider individuellement les
+                        composants du projet, assurant ainsi la qualité et la stabilité du code.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Tests unitaires
+                        </li>
+                        <li>
+                            Html . CSS . AngularJs . ionic . Karma . Protractor . Selenium . Jira . Jenkins . Gulp .
+                            Yarn
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ********************************************************************************************************************************************* -->
+            <div class="experience">
+                <div class="timeline">
+                    <p title="juin 2015 - Septembre 2016">
+                        2016
+                        -<br/>
+                        2015
+                    </p>
+                </div>
+                <div class="content">
+                    <h3>Administrateur et coordinateur ENT</h3>
+                    <p class="text-hint mb-2 flex-container">
+                        <img class="logo" src="img/lion.png" alt="Logo MPEN Togo">
+                        <span>
+                                    Ministère des Postes et de l'Économie Numérique du Togo <span
+                                id="adminstrateur"></span>
                                     <script>calculateDuration(new Date(2015, 6, 1), 'adminstrateur', new Date(2016, 9, 1), 'CDD');</script>
                                 </span>
-                            </p>
-                            <p class="text-justify">
-                                Projet de déploiement d'un Environnement Numérique de Travail (ENT) dans les lycées, réalisé par la société E-Global Action France en partenariat avec le gouvernement togolais.
-                                Mes principales missions consistaient à animer et assurer la communication autour de l’ENT, tout en accompagnant et formant les utilisateurs dans l’utilisation des outils numériques. 
-                                J’ai notamment formé 135 enseignants sur plus de 150 heures, leur permettant de mieux exploiter les ressources mises à leur disposition.
-                                En parallèle, j'ai organisé et géré les ressources numériques et matérielles, veillant à leur bonne utilisation et à leur accessibilité. 
-                                J’ai également assuré la maintenance du réseau et du parc informatique, garantissant leur bon fonctionnement, ainsi que l'administration quotidienne des services de l'ENT.
-                            </p>
-                            <h4>Compétences  :</h4>
-                            <ul>
-                                <li>
-                                    Gestion de projet . Administration reseau . Formation . Suite Office
-                                </li>
-                                <li>
-                                    Éole (Ubuntu Server) . Firewall CISCO . Windows Storage Server 2012 . Ubuntu 16.10 . MySQL . Apache . PHP . WordPress . Moodle.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </main>
+                    </p>
+                    <p class="text-justify">
+                        Projet de déploiement d'un Environnement Numérique de Travail (ENT) dans les lycées, réalisé par
+                        la société E-Global Action France en partenariat avec le gouvernement togolais.
+                        Mes principales missions consistaient à animer et assurer la communication autour de l’ENT, tout
+                        en accompagnant et formant les utilisateurs dans l’utilisation des outils numériques.
+                        J’ai notamment formé 135 enseignants sur plus de 150 heures, leur permettant de mieux exploiter
+                        les ressources mises à leur disposition.
+                        En parallèle, j'ai organisé et géré les ressources numériques et matérielles, veillant à leur
+                        bonne utilisation et à leur accessibilité.
+                        J’ai également assuré la maintenance du réseau et du parc informatique, garantissant leur bon
+                        fonctionnement, ainsi que l'administration quotidienne des services de l'ENT.
+                    </p>
+                    <h4>Compétences :</h4>
+                    <ul>
+                        <li>
+                            Gestion de projet . Administration reseau . Formation . Suite Office
+                        </li>
+                        <li>
+                            Éole (Ubuntu Server) . Firewall CISCO . Windows Storage Server 2012 . Ubuntu 16.10 . MySQL .
+                            Apache . PHP . WordPress . Moodle.
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-
+        </main>
         <footer>
             <h2 class="title-small">POUR VOUS RECONTACTER</h2>
-            <form action="#"">
-            <i class="far fa-envelope-open prefix"></i>
-            <input type="text" name="email" placeholder="Votre email" />
-            <button>
-                <i class="fa-solid fa-paper-plane postfix"></i>
-            </button>
+            <form action="#">
+                <i class="far fa-envelope-open prefix"></i>
+                <label>
+                    <input type="text" name="email" placeholder="Votre email"/>
+                </label>
+                <button>
+                    <i class="fa-solid fa-paper-plane postfix"></i>
+                </button>
             </form>
         </footer>
-    </body>
+    </div>
+</div>
+</body>
 </html>
