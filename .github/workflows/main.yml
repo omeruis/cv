@@ -22,7 +22,7 @@ jobs:
       - name: déployer sur le serveur
         run: |
           ping -c 4 $SERVER_IP
-          nc -zv "$SERVER_IP 22
+          nc -zv $SERVER_IP 22
           eval $(ssh-agent -s)
           ssh-add - <<< "${{ secrets.SSH_KEY_VPS }}"
           mkdir -p ~/.ssh
