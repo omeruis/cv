@@ -9,8 +9,8 @@
         <link rel="stylesheet" href="css/style.css" />
         <script src="https://kit.fontawesome.com/cebf3b1694.js" crossorigin="anonymous"></script>
         <script>
-            function calculateDuration(startDate, elementId, type = 'CDI') {
-                const now = new Date();
+            function calculateDuration(startDate, elementId, endDate = null, type = 'CDI') {
+                const now = endDate ? new Date(endDate) : new Date();
                 let years = now.getFullYear() - startDate.getFullYear();
                 let months = now.getMonth() - startDate.getMonth();
 
@@ -31,7 +31,11 @@
                     months -= 12;
                 }
 
-                document.getElementById(elementId).textContent = `${type} . ${years} an${years > 1 ? 's' : ''} et ${months} mois`;
+                const duration = years > 0 
+                    ? `${years} an${years > 1 ? 's' : ''}${months > 0 ? ' et ' + months + ' mois' : ''}` 
+                    : `${months} mois`;
+                const status = endDate ? '' : '(En cours)';
+                document.getElementById(elementId).textContent = `${type} . ${duration} ${status}`;
             }
         </script>
         <title>CV - Omer NAPPORN</title>
@@ -192,7 +196,7 @@
                                     <script>calculateDuration(new Date(2023, 9, 1), 'techlead-mpa');</script>
                                 </span>
                             </p>
-                            <p>
+                            <p class="text-justify">
                                 En tant que Technical Lead, je suis responsable de la conception et de l'architecture logicielle sous la supervison de l'architecte, en utilisant des technologies comme Java, Spring Boot, Kafka, Vue.js et PWA.
                                 Mon expertise inclut également le développement mobile sur Swift et Android. Je prends des décisions techniques et je résous des problématiques complexes en étant un support pour l'equipe de développeurs.
                                 En parallèle, je joue également un rôle clé de scrum master dans la gestion des processus agiles en supervisant les cérémonies, la planification des sprints et les rétrospectives. 
@@ -200,11 +204,13 @@
                                 J'utilise des outils tels que Jira pour la gestion de projet et GitLab pour le suivi de code.
                                 Je m'efforce de favoriser un environnement de travail collaboratif et inclusif, tout en veillant à l'application constante des meilleures pratiques de développement.
                             </p>
+                            <h4>Compétences  :</h4>
                             <ul>
                                 <li>
-                                    Méthodes agiles · Revue de code · Applications web progressives · Rédaction de récits utilisateurs . Signature électronique . Paiement en ligne
-                                </li><li>
-                                    Vue3 · Apache Kafka · Spring Boot · Spring batch · PHP · AngularJS · JavaScript · Nginx · Vite · Java · CSS · SQL · HTML5 . Swift . Android
+                                    Méthodes agiles · Revue de code · Espace Personnel · Rédaction de récits utilisateurs . Signature électronique . Paiement en ligne . PWA
+                                </li>
+                                <li>
+                                    Vue3 · Apache Kafka · Java . Spring Boot · Spring batch · PHP/Symfony · AngularJS · JavaScript · Nginx · Vite · SQL · HTML5 . CSS . Swift . Android
                                 </li>
                             </ul>
                         </div>
@@ -212,39 +218,180 @@
                     <!-- ********************************************************************************************************************************************* -->
                     <div class="experience">
                         <div class="timeline">
-                            <p title="septembre 2023 - aujourd'hui">
-                                <i class="fas fa-hourglass-half" title="En cours"></i><br />
-                                -<br />
+                            <p title="Avril 2021 - Octobre 2023">
                                 2023
+                                -<br />
+                                2021
                             </p>
                         </div>
                         <div class="content">
-                            <h3>Technical Lead</h3>
+                            <h3>Développeur Full Stack</h3>
                             <p class="text-hint mb-2 flex-container">
                                 <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
                                 <span>
-                                    Mutuelle de Poitiers Assurances <span id="duration-mpa"></span>
-                                    <script>calculateDuration(new Date(2023, 9, 1), 'duration-mpa');</script>
+                                    Mutuelle de Poitiers Assurances <span id="fullstack-mpa"></span>
+                                    <script>calculateDuration(new Date(2021, 4, 1), 'fullstack-mpa', new Date(2023, 8, 31));</script>
                                 </span>
                             </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                                exercitationem incidunt nisi ea minus maxime iste recusandae
-                                deserunt impedit natus ut, quos molestiae, dolore odit voluptatem
-                                officiis placeat, consequuntur ab quisquam suscipit. Neque, odit
-                                ipsam eveniet debitis sunt, laboriosam temporibus, saepe incidunt
-                                minus excepturi et quos nesciunt reiciendis placeat quo.
+                            <p class="text-justify">
+                                Dans le cadre de mes missions, j’ai participé au développement et à la maintenance de projets digitaux. Je suis intervenu aussi dans les domaines de la santé et des sinistres pour la realision d'un projet
+                                de suivi de sinistres en ligne. 
+                                Pour la mise en place d'une demande de devis santé en ligne, j'ai utilisé Java, Spring Boot, Vue.js et Mustache pour le front-end, tandis que le back-end a été construit avec Java, Struts et XML. 
+                                Des webservices SOAP et REST ont été intégrés pour faciliter la communication entre les systèmes.
+                                J'ai également développé un SDK pour un service REST dédié à la signature électronique, en utilisant Swagger et Java avec Spring Boot (versions 1 et 2).
+                                En outre, j'ai mis en place une solution de signature électronique, où le front-end a été réalisé avec PHP/Symfony et Twig dans un environnement Docker. 
+                                Le back-end, quant à lui, a été conçu avec Java, Struts et Spring Boot 2, intégrant également des webservices SOAP et REST, le tout reposant sur une architecture micro-services.
                             </p>
+                            <h4>Compétences  :</h4>
                             <ul>
                                 <li>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
-                                    praesentium.
+                                    Signature électronique . Paiement en ligne . Espace personnel
+                                </li>
+                                <li>
+                                    Docker . PHP . Symfony . Java . Spring Boot . Vue.js . AngularJS . Mustache . Struts . XML . SOAP . REST
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                    <!-- ********************************************************************************************************************************************* -->
+                    <div class="experience">
+                        <div class="timeline">
+                            <p title="Septembre 2019 - Mars 2021">
+                                2021
+                                -<br />
+                                2019
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Consultant Java</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="img/cgi_logo.jpeg" alt="Logo CGI">
+                                <span>
+                                    UMANIS <span id="consultant-java"></span>
+                                    <script>calculateDuration(new Date(2019, 9, 1), 'consultant-java', new Date(2021, 3, 30));</script>
+                                </span>
+                            </p>
+                            <p class="text-justify">
+                                Mise en place d'un projet de suivi des sinistres en ligne, basé sur Vue.js (version 2), permettant aux utilisateurs de suivre l'état de leurs dossiers depuis leur espace personnel. 
+                                Ce projet intégrait également un système de téléchargement de pièces jointes, avec des restrictions spécifiques sur les droits d'accès pour garantir la confidentialité et la sécurité des documents.
+                                En parallèle, j'ai assuré la maintenance des applications de signature électronique, en corrigeant notamment les anomalies détectées en production afin de garantir un fonctionnement optimal et sécurisé des services.
+                            </p>
+                            <h4>Compétences  :</h4>
+                            <ul>
+                                <li>
+                                    Signature électronique . Espace personnel
+                                </li>
+                                <li>
+                                    PHP . Symfony . Java . Spring Boot . Vue.js . Struts . XML . SOAP . REST
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <!-- ********************************************************************************************************************************************* -->
+                    <div class="experience">
+                        <div class="timeline">
+                            <p title="Septembre 2018 - Aout 2019">
+                                2019
+                                -<br />
+                                2018
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Analyste Développeur Java / Angular</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="https://www.assurance-mutuelle-poitiers.fr/bundles/core/images/logo.svg" alt="Logo Mutuelle de Poitiers Assurances">
+                                <span>
+                                    Mutuelle de Poitiers Assurances <span id="analyste-java"></span>
+                                    <script>calculateDuration(new Date(2018, 9, 1), 'analyste-java', new Date(2019, 8, 30), 'Alternance');</script>
+                                </span>
+                            </p>
+                            <p class="text-justify">
+                                J'ai participé au développement de services REST en utilisant Spring, ainsi qu'à la création d'applications front-end avec AngularJS. En parallèle, 
+                                j'ai rédigé des cahiers de recette afin de formaliser les tests et validations des fonctionnalités.
+                                J'ai également rédigé des tests unitaires pour le front-end, en utilisant Jest, et pour le back-end avec Mockito, afin de garantir la robustesse du code.
+                                Par ailleurs, j'ai mené la refonte d'une application de gestion des partenaires, initialement développée en Visual Basic, en la modernisant avec AngularJS et Java, pour améliorer ses performances et son ergonomie.
+                            </p>
+                            <h4>Compétences  :</h4>
+                            <ul>
+                                <li>
+                                    Tests unitaires . Rédactions de cahiers de recette
+                                </li>
+                                <li>
+                                        Java . Spring Boot . AngularJs . Struts . XML . REST . Mockito . JUnit
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- ********************************************************************************************************************************************* -->
+                    <div class="experience">
+                        <div class="timeline">
+                            <p title="Avril 2017 - Aout 2017">
+                                2017
+                                -<br />
+                                2017
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Testeur front-end</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="img/groupama_gan_vie_logo.jpeg" alt="Logo Groupama">
+                                <span>
+                                    GROUPAMA GAN VIE <span id="testeur"></span>
+                                    <script>calculateDuration(new Date(2017, 4, 1), 'testeur', new Date(2017, 8, 1), 'Stage');</script>
+                                </span>
+                            </p>
+                            <p class="text-justify">
+                                Lors de mon stage sur le projet iVie, j'ai contribué au développement de tests automatiques visant à vérifier les interfaces utilisateurs (IHM). 
+                                Mon travail a consisté à mettre en place des tests end-to-end automatiques, permettant de simuler le parcours utilisateur complet et de vérifier le bon fonctionnement des fonctionnalités. 
+                                En parallèle, j'ai également développé des tests unitaires pour valider individuellement les composants du projet, assurant ainsi la qualité et la stabilité du code.
+                            </p>
+                            <h4>Compétences  :</h4>
+                            <ul>
+                                <li>
+                                    Tests unitaires
+                                </li>
+                                <li>
+                                    Html . CSS . AngularJs .  ionic . Karma . Protractor . Selenium . Jira . Jenkins . Gulp . Yarn
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- ********************************************************************************************************************************************* -->
+                    <div class="experience">
+                        <div class="timeline">
+                            <p title="juin 2015 - Septembre 2016">
+                                2016
+                                -<br />
+                                2015
+                            </p>
+                        </div>
+                        <div class="content">
+                            <h3>Administrateur et coordinateur ENT</h3>
+                            <p class="text-hint mb-2 flex-container">
+                                <img class="logo" src="img/lion.png" alt="Logo MPEN Togo">
+                                <span>
+                                    Ministère des Postes et de l'Économie Numérique du Togo <span id="adminstrateur"></span>
+                                    <script>calculateDuration(new Date(2015, 6, 1), 'adminstrateur', new Date(2016, 9, 1), 'CDD');</script>
+                                </span>
+                            </p>
+                            <p class="text-justify">
+                                Projet de déploiement d'un Environnement Numérique de Travail (ENT) dans les lycées, réalisé par la société E-Global Action France en partenariat avec le gouvernement togolais.
+                                Mes principales missions consistaient à animer et assurer la communication autour de l’ENT, tout en accompagnant et formant les utilisateurs dans l’utilisation des outils numériques. 
+                                J’ai notamment formé 135 enseignants sur plus de 150 heures, leur permettant de mieux exploiter les ressources mises à leur disposition.
+                                En parallèle, j'ai organisé et géré les ressources numériques et matérielles, veillant à leur bonne utilisation et à leur accessibilité. 
+                                J’ai également assuré la maintenance du réseau et du parc informatique, garantissant leur bon fonctionnement, ainsi que l'administration quotidienne des services de l'ENT.
+                            </p>
+                            <h4>Compétences  :</h4>
+                            <ul>
+                                <li>
+                                    Gestion de projet . Administration reseau . Formation . Suite Office
+                                </li>
+                                <li>
+                                    Éole (Ubuntu Server) . Firewall CISCO . Windows Storage Server 2012 . Ubuntu 16.10 . MySQL . Apache . PHP . WordPress . Moodle.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
