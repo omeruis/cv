@@ -21,11 +21,14 @@ jobs:
         uses: actions/checkout@v4
       - name: déployer sur le serveur
         run: |
-          ping -c 4 $SERVER_IP
+          ping -c 4 141.94.79.103
+          traceroute $SERVER_IP
           nc -zv $SERVER_IP 22
           eval $(ssh-agent -s)
           ssh-add - <<< "${{ secrets.SSH_KEY_VPS }}"
           mkdir -p ~/.ssh
+          echo "Host * HostKeyAlgorithms +ssh-ed25519 PubkeyAcceptedKeyTypes +ssh-ed25519" > ~/.ssh/config
+          chmod 600 ~/.ssh/config
           ssh-keyscan -H 141.94.79.103 >> ~/.ssh/known_hosts
           ssh $SERVER_USER@$141.94.79.103 'mkdir -p /var/www/html/cv'
           scp -r index.html img css $SERVER_USER@141.94.79.103:/var/www/html/cv/
