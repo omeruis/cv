@@ -37,6 +37,19 @@
                 const status = endDate ? '' : '(En cours)';
                 document.getElementById(elementId).textContent = `${type} . ${duration} ${status}`;
             }
+
+            function calculateExperience(startDate, elementId) {
+                const now = new Date();
+                let years = now.getFullYear() - startDate.getFullYear();
+                let months = now.getMonth() - startDate.getMonth();
+
+                // Ajuster les années et les mois si nécessaire
+                if (months < 0 || (months === 0 && now.getDate() < startDate.getDate())) {
+                    years--;
+                }
+
+                document.getElementById(elementId).textContent = `(+ ${years} ans)`;
+            }
         </script>
         <title>CV - Omer NAPPORN</title>
     </head>
@@ -45,7 +58,8 @@
             <div id="cv-content" class="grid-container">
                 <header>
                     <h1>Omer NAPPORN</h1>
-                    <p>Développeur Full-Stack</p>
+                    <p>Développeur Full-Stack <span id="experiences"></span></p>
+                    <script>const experienceYears = calculateExperience(new Date(2018, 8, 1),  'experiences');</script>
                 </header>
                 <section class="picture">
                     <img src="/img/omer.jpeg" alt="photo" />
