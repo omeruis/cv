@@ -21,9 +21,7 @@ jobs:
         uses: actions/checkout@v4
       - name: déployer sur le serveur
         run: |
-          curl -v https://api.github.com
-          curl -v https://codewithomer.dev
-          ping -c 4 141.94.79.103
+          ping -c 4 https://codewithomer.dev
           traceroute $SERVER_IP
           nc -zv $SERVER_IP 22
           eval $(ssh-agent -s)
