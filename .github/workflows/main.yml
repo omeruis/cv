@@ -1,8 +1,8 @@
 name: CI/CD workflow
 
 env:
-  SERVER_IP: 'codewithomer.dev'
-  SERVER_USER: 'omeruis'
+  SERVER_IP: '141.94.79.103'
+  SERVER_USER: 'root'
 
 # Paramètres pour gérer la concurrence des jobs
 concurrency:
@@ -24,6 +24,6 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add - <<< "${{ secrets.SSH_KEY_VPS }}"
           mkdir -p ~/.ssh
-          ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
-          ssh $SERVER_USER@$SERVER_IP 'mkdir -p /var/www/html/cv'
-          scp -r index.html img css $SERVER_USER@SERVER_IP:/var/www/html/cv/
+          ssh-keyscan -H 141.94.79.103 >> ~/.ssh/known_hosts
+          ssh $SERVER_USER@$141.94.79.103 'mkdir -p /var/www/html/cv'
+          scp -r index.html img css $SERVER_USER@141.94.79.103:/var/www/html/cv/
