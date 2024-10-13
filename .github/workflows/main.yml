@@ -23,6 +23,7 @@ jobs:
         run: |
           eval $(ssh-agent -s)
           ssh-add - <<< "${{ secrets.SSH_KEY_VPS }}"
+          echo -e "Host *\n  PubkeyAcceptedKeyTypes=+ssh-ed25519,ecdsa-sha2-nistp256,ssh-rsa" > ~/.ssh/config
           mkdir -p ~/.ssh
           ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
           ssh $SERVER_USER@$SERVER_IP 'mkdir -p /var/www/html/cv'
