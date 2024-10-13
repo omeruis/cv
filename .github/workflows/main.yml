@@ -1,8 +1,8 @@
 name: CI/CD workflow
 
 env:
-  SERVER_IP: 'https://141.94.79.103'
-  SERVER_USER: 'root'
+  SERVER_IP: 'https://codewithomer.dev'
+  SERVER_USER: 'omeruis'
 
 # Paramètres pour gérer la concurrence des jobs
 concurrency:
