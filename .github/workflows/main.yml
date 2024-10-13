@@ -22,7 +22,6 @@ jobs:
       - name: déployer sur le serveur
         run: |
           eval $(ssh-agent -s)
-#          ssh-add - <<< "${{ secrets.SSK_KEY_VPS }}"
           echo "$SSK_KEY_VPS" | tr -d '\r' | ssh-add -
           mkdir -p ~/.ssh
           ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
